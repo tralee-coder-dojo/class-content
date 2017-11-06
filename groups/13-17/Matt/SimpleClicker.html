@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Simple Clicker</title>
+    </head>
+    
+    <body>
+        <script>
+        let clicks = 0;
+        function incrementClick() {
+            clicks += 1;
+            document.getElementById("clicks").innerHTML = clicks;
+        };
+        </script>
+        <button type="button" onClick="incrementClick()">Click me</button>
+        <p> Score:<a id="clicks">0</a></p>
+    
+    </body></html
