@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<style>
+#myContainer {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  background: yellow;
+}
+#myAnimation {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  background-color: red;
+}
+</style>
+<body>
+
+<p>
+<p>Score:<a id="myScore">0</a></p>
+<button onclick="myStopGo()" id="myButton">Click Me</button> 
+</p>
+<p id="debug">debugging</p>
+<p id="debug2">debugging2</p>
+<p id="debug3">debugging3</p>
+<p id="debug4">debugging4</p>
+
+<div id ="myContainer">
+<div id ="myAnimation" onclick="ScoreUpdate()"></div>
+</div>
+
+<script>
+let score=0;
+let started = false;
+function ScoreUpdate(){
+	score += 1;
+    document.getElementById("myScore").innerHTML = score;
+}
+
+function myStopGo(){
+    document.getElementById("debug").innerHTML = "Start " + started;
+
+    if (started == false){
+        //change the button string, start moving if not, otherwise stop
+
+        document.getElementById("myButton").innerHTML = "Click to stop";
+        myMove(); //move the object
+        started = true;
+
+    }
+    else{
+        document.getElementById("debug4").innerHTML = "Stop selected";
+
+        myMove();
+        started = false;
+    }
+}
+var id;
+
+function myMove() {
+    document.getElementById("debug2").innerHTML = "in MyMove move = " + started;
+
+  var elem = document.getElementById("myAnimation");   
+  if (started == false){
+    id = setInterval(frame, 10); //start the object moving
+    document.getElementById("myButton").innerHTML = "Click to stop";
+
+  }
+  else{
+
+    clearInterval(id);
+  }
+  var pos = 0;
+  function frame() {
+ 
+    if (pos == 350 ) {
+
+      clearInterval(id);
+      document.getElementById("myButton").innerHTML = "Click to start";
+
+    } else {
+      pos++; 
+      elem.style.top = pos + 'px'; 
+      elem.style.left = pos + 'px'; 
+
+    }
+  }
+}
+</script>
+
+</body>
+</html>
