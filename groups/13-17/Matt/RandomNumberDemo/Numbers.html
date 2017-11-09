@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html><head>
+    Some simple coding
+
+</head>
+<link rel="stylesheet" type="text/css" href="Numbers.css">
+<body>
+    <p id="demo"> </p>
+    <p id="demo2"> </p>
+    
+    <button onclick="MyFunction()">press me </button>
+
+</body>
+<script>
+    function MyFunction(){
+
+        let arr = [Math.random(), Math.random(), Math.random()];
+        //find the smallest element in 'arr'. 
+        smallest = arr[0];
+     
+        for(var i = 1; i < 3; ++i){
+            if (smallest > arr[i])
+                smallest = arr[i];
+        }
+
+        document.getElementById("demo").innerHTML =  "The numbers are " + arr + "\nThe smallest element is " + smallest;
+        //find a random number between 0 and 10
+        //Math.floor rounds a number to the nearest integer
+        //modulus ( % in x % y) returns the remainder when x is divided by y
+        // so, for example, 100 % 3 is 1, 10 % 2 is 0 and so on
+        
+        document.getElementById("demo2").innerHTML = 
+        "A random number between 0 and 10 " + Math.floor(100 *Math.random()) % 11;
+
+
+    }
+</script>
+</html>
