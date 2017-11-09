@@ -18,7 +18,7 @@
 
 <p>
 <p>Score:<a id="myScore">0</a></p>
-<button onclick="myStopGo()" id="myButton">Click Me</button> 
+<button onclick="myStopGo()" id="myButton">Click to start</button> 
 </p>
 
 <div id ="myContainer">
@@ -72,6 +72,7 @@ function myMove() {
 
       clearInterval(id);
       document.getElementById("myButton").innerHTML = "Click to start";
+      started = false;
 
     } else {
       pos++; 
